@@ -1,6 +1,8 @@
 import os
 from src.modelos.modelo_google import ModeloGoogle
 from src.modelos.modelo_groq import ModeloGroq
+from src.modelos.prompt_01 import Prompt01
+from src.modelos.prompt_02 import Prompt02
 
 class MenuPrincipal():
     def __init__(self):
@@ -14,6 +16,8 @@ class MenuPrincipal():
         print("1. Modelo Google API KEY")
         print("2. Modelo Groq API KEY")
         print("3. Modelo Local")
+        print("4. Promp básico")
+        print("5. Prompt avanzado")
         print("0. Salir\n")
 
     def ejecutar_opcion(self):
@@ -50,6 +54,26 @@ class MenuPrincipal():
                 respuesta = modelo_local.generar_respuesta(prompt)
                 os.system("cls")
                 print("Respuesta del modelo Local:\n")
+                print("-"*30)
+                print(respuesta)
+                print("-"*30)
+                print("")
+
+            elif self.opcion == "4":
+                prompt01 = Prompt01()
+                respuesta = prompt01.generar_respuesta("hola como andas? yo ando buen buggy")
+                os.system("cls")
+                print("Respuesta del prompt básico:\n")
+                print("-"*30)
+                print(respuesta)
+                print("-"*30)
+                print("")
+
+            elif self.opcion == "5":
+                prompt02 = Prompt02()
+                respuesta = prompt02.generar_respuestas()
+                os.system("cls")
+                print("Respuesta del prompt avanzado:\n")
                 print("-"*30)
                 print(respuesta)
                 print("-"*30)
