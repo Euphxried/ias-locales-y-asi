@@ -1,4 +1,6 @@
 import os
+from src.modelos.modelo_conectar import Prompt_Conexion
+from src.modelos.modelo_roles import Prompt_roles
 from src.modelos.modelo_google import ModeloGoogle
 from src.modelos.modelo_groq import ModeloGroq
 from src.modelos.prompt_01 import Prompt01
@@ -18,6 +20,8 @@ class MenuPrincipal():
         print("3. Modelo Local")
         print("4. Promp básico")
         print("5. Prompt avanzado")
+        print("6. Prompt con roles")
+        print("7. Prompt con conexión")
         print("0. Salir\n")
 
     def ejecutar_opcion(self):
@@ -74,6 +78,28 @@ class MenuPrincipal():
                 respuesta = prompt02.generar_respuestas()
                 os.system("cls")
                 print("Respuesta del prompt avanzado:\n")
+                print("-"*30)
+                print(respuesta)
+                print("-"*30)
+                print("")
+
+            elif self.opcion == "6":
+                
+                prompt_roles = Prompt_roles()
+                respuesta = prompt_roles.generar_respuesta()
+                os.system("cls")
+                print("Respuesta del prompt con roles:\n")
+                print("-"*30)
+                print(respuesta)
+                print("-"*30)
+                print("")
+
+            elif self.opcion=="7":
+                
+                prompt_conexion = Prompt_Conexion()
+                respuesta = prompt_conexion.generar_respuesta()
+                os.system("cls")
+                print("Respuesta del prompt con conexión:\n")
                 print("-"*30)
                 print(respuesta)
                 print("-"*30)
