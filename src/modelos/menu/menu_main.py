@@ -5,7 +5,8 @@ from src.modelos.modelo_google import ModeloGoogle
 from src.modelos.modelo_groq import ModeloGroq
 from src.modelos.prompt_01 import Prompt01
 from src.modelos.prompt_02 import Prompt02
-
+from src.modelos.modelo_sinmemoria import ModeloSinMemoria
+from src.modelos.modelo_conmemoria import ModeloConMemoria
 class MenuPrincipal():
     def __init__(self):
         self.opcion = 0
@@ -22,6 +23,8 @@ class MenuPrincipal():
         print("5. Prompt avanzado")
         print("6. Prompt con roles")
         print("7. Prompt con conexión")
+        print("8. Modelo Sin Memoria")
+        print("9. Modelo Con Memoria")
         print("0. Salir\n")
 
     def ejecutar_opcion(self):
@@ -105,6 +108,16 @@ class MenuPrincipal():
                 print("-"*30)
                 print("")
 
+            elif self.opcion == "8":
+                modelo_sin_memoria = ModeloSinMemoria()
+                modelo_sin_memoria.generar_respuesta()
+
+            elif self.opcion == "9":
+                modelo_con_memoria = ModeloConMemoria()
+                modelo_con_memoria.generar_respuesta()
+
+#hacer un JSON para recorar cosas de chats pasados
+            
             elif self.opcion == "0":
                 print("Saliendo del programa...")
                 break 
